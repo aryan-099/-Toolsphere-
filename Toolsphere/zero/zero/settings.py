@@ -128,3 +128,8 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/home/'
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 30  # 30 days session
+
+# CSRF settings for Replit environment
+CSRF_TRUSTED_ORIGINS = ['https://*.replit.dev', 'https://*.replit.app']
+CSRF_COOKIE_SECURE = False  # Set to False for development
+CSRF_COOKIE_HTTPONLY = False
