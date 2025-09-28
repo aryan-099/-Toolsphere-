@@ -46,38 +46,50 @@ def logout(request):
     return redirect('user_login')
 
 # Home Page (protected)
+@login_required(login_url='user_login')
 def home(request):
     return render(request, 'appz/index.html')
 
+@login_required(login_url='user_login')
 def calculator(request):
     return render(request, 'appz/calculator.html')
 
+@login_required(login_url='user_login')
 def bmi(request):
     return render(request, 'appz/bmi.html')
 
+@login_required(login_url='user_login')
 def area(request):
     return render(request, 'appz/area.html')
 
+@login_required(login_url='user_login')
 def currency(request):
     return render(request, 'appz/currency.html')
 
+@login_required(login_url='user_login')
 def length(request):
     return render(request, 'appz/length.html')
 
+@login_required(login_url='user_login')
 def volume(request):
     return render(request, 'appz/volume.html')
 
+@login_required(login_url='user_login')
 def temperature(request):
     return render(request, 'appz/temperature.html')
 
+@login_required(login_url='user_login')
 def time(request):
     return render(request, 'appz/time.html')
 
+@login_required(login_url='user_login')
 def speed(request):
     return render(request, 'appz/speed.html')
 
+@login_required(login_url='user_login')
 def numeral(request):
     return render(request, 'appz/numeral.html')
 
+@login_required(login_url='user_login')
 def homeloan(request):
     return render(request, 'appz/homeloan.html')
