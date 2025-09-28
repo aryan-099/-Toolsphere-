@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-eoj%d&b8x)&qpw9zt191vxo231b*6ab)(97^qiqn$j!-@x71ag
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 INSTALLED_APPS = [
@@ -40,7 +40,9 @@ ROOT_URLCONF = 'zero.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Templates directory at project level
+        'DIRS':
+        [os.path.join(BASE_DIR,
+                      'templates')],  # Templates directory at project level
         'APP_DIRS': True,  # App-specific templates
         'OPTIONS': {
             'context_processors': [
@@ -54,7 +56,6 @@ TEMPLATES = [
 ]
 WSGI_APPLICATION = 'zero.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -65,25 +66,27 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
@@ -96,7 +99,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
@@ -104,7 +106,7 @@ STATIC_URL = '/static/'
 
 # Add directories for static files
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # Static files directory at project level
+    #os.path.join(BASE_DIR, 'static'),  # Static files directory at project level
 ]
 
 # The directory where static files will be collected for production
@@ -126,4 +128,3 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/home/'
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 30  # 30 days session
-
