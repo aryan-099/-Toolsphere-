@@ -28,6 +28,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Add WhiteNoise for static files
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -112,6 +113,9 @@ STATICFILES_DIRS = [
 # The directory where static files will be collected for production
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# WhiteNoise configuration for static files
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
@@ -129,7 +133,12 @@ LOGIN_REDIRECT_URL = '/home/'
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 30  # 30 days session
 
-# CSRF settings for Replit environment
-CSRF_TRUSTED_ORIGINS = ['https://*.replit.dev', 'https://*.replit.app']
+# CSRF settings for Replit and Vercel environments
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.replit.dev', 
+    'https://*.replit.app',
+    'https://*.vercel.app',
+    'https://toolsphere-theta.vercel.app'
+]
 CSRF_COOKIE_SECURE = False  # Set to False for development
 CSRF_COOKIE_HTTPONLY = False
