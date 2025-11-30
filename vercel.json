@@ -1,17 +1,23 @@
 {
-  "buildCommand": "cd Toolsphere/zero && pip install -r requirements.txt",
-  "outputDirectory": "Toolsphere/zero/staticfiles",
-  "installCommand": "pip install -r Toolsphere/zero/requirements.txt || echo 'No requirements.txt found'",
+  "version": 2,
   "builds": [
     {
-      "src": "Toolsphere/zero/manage.py",
+      "src": "Toolsphere/zero/vercel_app.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "Toolsphere/zero/staticfiles/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
+      "src": "/static/(.*)",
+      "dest": "Toolsphere/zero/staticfiles/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "Toolsphere/zero/zero/wsgi.py"
+      "dest": "Toolsphere/zero/vercel_app.py"
     }
   ]
 }
